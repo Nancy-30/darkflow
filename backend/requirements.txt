@@ -1,2 +1,5 @@
 Flask
 python-dotenv
+pandas
+openpyxl
+pymongo
