@@ -13,7 +13,7 @@ nav {
   box-sizing: border-box;
   border-bottom: .1px solid transparent; /* Border only at the bottom */
   background-clip: padding-box, border-box; 
-  border-image: linear-gradient(to right, white, white) 1; /* Shining white border at the bottom */
+  border-bottom: 1px solid rgb(48, 48, 48);
 }
 
 nav .text-title {

@@ -1,8 +1,10 @@
 import React from "react";
 import "./Landing.css"; 
+import Footer from "./Footer";
 
 export default function Landing() {
   return (
+    <>
     <section className="landing-section">
       <div className="landing-container">
         <span className="landing-title">
@@ -23,6 +25,9 @@ export default function Landing() {
           </button>
         </div>
       </div>
+      
     </section>
+    <Footer/>
+    </>
   );
 }

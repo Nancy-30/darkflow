@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 1);
+    background: #070b17ff;
     box-sizing: border-box; 
 }
   
@@ -39,10 +39,12 @@
 }
   
 .landing-text {
-    color: #fff;
+    color: #9f9f9f;
     text-align: center;
     margin: 0 auto;
-    max-width: 768px; 
+    max-width: 500px; 
+    margin-top:10px;
+    margin-bottom:10px;
 }
   
 .landing-buttons {
@@ -57,7 +59,7 @@
 }
   
 .landing-button-primary {
-    color: #dda15e;
+    color: white;
     background-color: #255FDA; 
 }
 
