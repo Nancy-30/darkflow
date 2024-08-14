@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
-def linear_regression(df, target_column):
+def xgboost_regression(df, target_column):
     X = df.drop(columns=[target_column])
     y = df[target_column]
 
