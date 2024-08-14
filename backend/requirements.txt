@@ -3,3 +3,5 @@ python-dotenv
 pandas
 openpyxl
 pymongo
+scikit-learn
+xgboost
