@@ -21,16 +21,16 @@ const Input = forwardRef((props, ref) => {
         <h2>Get Started</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
+            <label htmlFor="csvFile">Upload CSV File</label>
+            <input type="file" id="csvFile" name="csvFile" accept=".csv" required />
+          </div>
+          <div className="form-group">
             <label htmlFor="primaryKey">Primary Key Column</label>
             <input type="text" id="primaryKey" name="primaryKey" required />
           </div>
           <div className="form-group">
             <label htmlFor="targetColumn">Target Column</label>
             <input type="text" id="targetColumn" name="targetColumn" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="csvFile">Upload CSV File</label>
-            <input type="file" id="csvFile" name="csvFile" accept=".csv" required />
           </div>
           <button type="submit" className="submit-button">
             Estimate
