@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import './Modal.css';
+import React, { forwardRef } from 'react';
+import './Input.css';
 
-export default function Modal({ isOpen, onClose }) {
-  if (!isOpen) return null;
-
+const Input = forwardRef((props, ref) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here
     alert('Estimate submitted!');
     onClose();
   };
-
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>
-          &times;
-        </button>
+    <div className="info-modal-overlay" ref={ref}>
+      <div className="info-modal-content">
+        <div className="info-text">
+          <h1>Unlock the Future of Machine Learning</h1>
+          <br />
+          <p>Discover the Power of ML-Ops: Effortlessly Manage and Scale Your</p>
+          <p>Propel Your Business Forward with Our Innovative ML Solutions</p>
+        </div>
+        <div className="modal-content">
         <h2>Get Started</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -36,6 +37,9 @@ export default function Modal({ isOpen, onClose }) {
           </button>
         </form>
       </div>
+      </div>
     </div>
   );
-}
+});
+
+export default Input;

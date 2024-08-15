@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <nav>
       <div className="text-title">
-        Asccelerate
+        Darkflow
       </div>
       <div className="nav-links">
         <Link to="/">Home</Link>
