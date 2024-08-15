@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import './Landing.css';
-import Footer from './Footer';
-import Modal from './Modal';
+import Input from './Input'; // Ensure the correct path to Input component
 
 export default function Landing() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const inputRef = useRef(null);
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
+  const scrollToInput = () => {
+    if (inputRef.current) {
+      inputRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -25,15 +22,14 @@ export default function Landing() {
             Streamline your workflow, automate processes
           </div>
           <div className="landing-buttons">
-            <button className="landing-button-primary" onClick={handleModalOpen}>
+            <button className="landing-button-primary" onClick={scrollToInput}>
               Get Started
             </button>
             <button className="landing-button-secondary">Learn More</button>
           </div>
         </div>
       </section>
-      <Footer />
-      <Modal isOpen={isModalOpen} onClose={handleModalClose} />
+      <Input ref={inputRef} />
     </>
   );
 }
