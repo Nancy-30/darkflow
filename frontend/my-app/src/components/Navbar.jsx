@@ -5,9 +5,7 @@ import './Navbar.css';
 export default function Navbar() {
   return (
     <nav>
-      <div className="text-title">
-        Darkflow
-      </div>
+      <img src="/public/logo.png" height="40rem" alt="" />
       <div className="nav-links">
         {/* <Link to="/">Home</Link>
         <Link to="/about">About</Link>
