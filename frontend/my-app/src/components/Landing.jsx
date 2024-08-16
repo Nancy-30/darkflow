@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './Landing.css';
 import Input from './Input'; // Ensure the correct path to Input component
+import Section2 from './Section2';
 
 export default function Landing() {
   const inputRef = useRef(null);
@@ -16,7 +17,9 @@ export default function Landing() {
       <section className="landing-section">
         <div className="landing-container">
           <span className="landing-title">Accelerate Your</span>
-          <span className="landing-subtitle">ML Workflow</span>
+          <span className="landing-subtitle">
+            <span>ML</span> Work<span>Flow</span>
+          </span>
           <div className="landing-text">
             Unlock the power of machine learning with our cutting-edge platform.
             Streamline your workflow, automate processes
@@ -29,6 +32,7 @@ export default function Landing() {
           </div>
         </div>
       </section>
+      <Section2 />
       <Input ref={inputRef} />
     </>
   );

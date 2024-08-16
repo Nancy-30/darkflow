@@ -17,6 +17,7 @@ const Input = forwardRef((props, ref) => {
           <p>Discover the Power of ML-Ops: Effortlessly Manage and Scale Your</p>
           <p>Propel Your Business Forward with Our Innovative ML Solutions</p>
         </div>
+        
         <div className="modal-content">
         <h2>Get Started</h2>
         <form onSubmit={handleSubmit}>
@@ -38,6 +39,7 @@ const Input = forwardRef((props, ref) => {
         </form>
       </div>
       </div>
+      
     </div>
   );
 });
