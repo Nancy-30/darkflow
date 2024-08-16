@@ -1,0 +1,45 @@
+.container_section
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 80px;
+    padding-top: 60px;
+    background-color: black;
+}
+.card_section
+{
+    width: 530px;
+    margin-right:30px;
+    margin-left: 30px;
+    height: 200px;
+    /* background-color: aqua */
+}
+.details_section
+{
+    color:rgb(151, 151, 151);
+}
+.parent_section
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -20px;
+    padding-top: 60px;
+    background-color: black;
+}
+.details_header_section
+{
+    text-align: center;
+    max-width: 700px;
+    color: grey;
+    font-size: 1.15rem;
+    position: relative;
+    top:-20px;
+}
+.header_section span
+{
+    color: #ef233c;
+}
