@@ -17,8 +17,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/mlnew.jpg') no-repeat center center/cover;
-    filter: blur(10px);
+    background: url('/back1.jpg') no-repeat center center/cover;
+    filter: blur(2px);
     z-index: -1; 
 }
 
@@ -75,11 +75,15 @@
 
 .landing-button-primary {
     color: white;
-    background-color: #255FDA; 
+    background-color: #6e6560; 
 }
 
 .landing-button-secondary {
-    background-color: #000;
+    background-color: transparent;
     color: #fff;
     border: 0.1px solid rgba(255, 255, 255, 0.9); 
+}
+
+.landing-subtitle span {
+    color:#ef233c; /* Replace with your desired color */
 }

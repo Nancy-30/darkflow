@@ -7,7 +7,7 @@ nav {
   display: flex;
   background: rgba(0, 0, 0, 0.5);
   z-index: 20;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
@@ -38,11 +38,11 @@ nav .nav-links a:hover {
 }
 
 nav .start-button {
-  background-color: #255FDA; 
+  /* background-color: #255FDA;  */
   color: white;
   border: none; 
   padding: 0.5rem 1rem;
-  border-radius: 1rem; 
+  /* border-radius: 1rem; x */
   cursor: pointer;
   font-size: 1rem;
 }
