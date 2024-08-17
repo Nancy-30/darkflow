@@ -5,7 +5,7 @@ import './Navbar.css';
 export default function Navbar() {
   return (
     <nav>
-      <img src="/public/logo.png" height="40rem" alt="" />
+      <img src="/logo.png" height="40rem" alt="" />
       <div className="nav-links">
         {/* <Link to="/">Home</Link>
         <Link to="/about">About</Link>
