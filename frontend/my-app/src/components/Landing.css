@@ -1,89 +1,84 @@
-.landing-section {
-    min-height: 100vh; 
-    width: 100vw; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative; 
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-    box-sizing: border-box; 
-    overflow: hidden;
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #000;
+    color: #fff;
 }
 
-.landing-section::before {
-    content: '';
+.landing-container {
+    position: relative; /* Required for positioning the pseudo-element */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
+}
+
+.landing-container::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/back1.jpg') no-repeat center center/cover;
+    background-image: url('/back6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     filter: blur(2px);
-    z-index: -1; 
+    z-index: 1; /* Ensure the pseudo-element is behind the content */
 }
 
-
-.landing-container {
-    max-width: 100%; 
+.hero-section {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
     align-items: center;
-    padding: 0 1rem; 
+    justify-content: space-between;
     width: 100%;
+    max-width: 1200px;
+    margin-top: 50px;
+    z-index: 1; /* Ensure the content is above the blurred background */
 }
 
-.landing-title, .landing-subtitle {
-    text-align: center;
+.hero-text {
+    width: 40%;
 }
 
-.landing-title {
-    font-size: clamp(36px, 4vw, 65px);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    color: var(--color1); 
+
+.hero-text h1 {
+    font-size: 48px;
 }
 
-.landing-subtitle {
-    font-size: clamp(30px, 4vw, 50px);
-    letter-spacing: -0.02em;
-    line-height: 0.8;
-    font-weight: 600;
-    color: var(--color1); 
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 40px;
 }
 
-.landing-text {
-    color: #9f9f9f;
-    text-align: center;
-    margin: 0 auto;
-    max-width: 500px; 
-    margin-top:10px;
-    margin-bottom:10px;
-}
-
-.landing-buttons {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.landing-button-primary, .landing-button-secondary {
-    width: fit-content;
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.25rem;
-}
-
-.landing-button-primary {
-    color: white;
-    background-color: #6e6560; 
-}
-
-.landing-button-secondary {
-    background-color: transparent;
+.cta-button {
+    background-color: #cc2121;
     color: #fff;
-    border: 0.1px solid rgba(255, 255, 255, 0.9); 
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.landing-subtitle span {
-    color:#ef233c; /* Replace with your desired color */
+.hero-image {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+    transform: translateX(6%); 
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transform: scaleY(1.1);
+}
+
+.hero-text h1 span{
+    color: rgb(209, 52, 52);
 }
