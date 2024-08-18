@@ -18,10 +18,10 @@ def upload_dataset():
         return jsonify({"Error": "No file in the request"}), 400
     
     file = request.files['file']
-    # take input primary column, target column and classification/regression
 
     if file.filename == '':
         return jsonify({"Error": "No file exists"}), 400
+   
     
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
@@ -38,18 +38,39 @@ def upload_dataset():
             else:
                 return jsonify({"error": "Unsupported format"}), 400
             
-            # apply data preprocessing on the dataset
-            df = data_preprocessing(df, {'index', 'W'})
+            # removing primary column from the dataset
+            index = request.form.get('index', None)
+            target = request.form.get('target', None)
             
-            print(df)
-            # Insert the dataset into MongoDB
-            dataset_info = {
+            # apply data preprocessing on the dataset
+            preprocessed_df = data_preprocessing(df.copy(), {index, target})
+            
+            original_dataset_info = {
                 "filename": filename,
-                "data": df.to_dict(orient='records')
+                "original_data": df.to_dict(orient='records'),
+                "index": index,
+                "target": target
             }
-            insert_id = insert_document('datasets', dataset_info)
 
-            return jsonify({"message": "File uploaded successfully", "data": df.head().to_dict(), "insert_id": str(insert_id)}), 201
+            original_insert_id = insert_document('original_datasets', original_dataset_info)
+
+            preprocessed_dataset_info = {
+                "filename": filename,
+                "preprocessed_data": preprocessed_df.to_dict(orient='records'),
+                "index": index,
+                "target": target,
+                "original_dataset_id": original_insert_id
+            }
+
+            preprocessed_insert_id = insert_document('preprocessed_datasets', preprocessed_dataset_info)
+
+            return jsonify({
+                "message": "File uploaded successfully",
+                "original_data_preview": df.head().to_dict(),
+                "preprocessed_data_preview": preprocessed_df.head().to_dict(),
+                "original_insert_id": str(original_insert_id),
+                "preprocessed_insert_id": str(preprocessed_insert_id)
+            }), 201
 
         except Exception as e:
             return jsonify({"error": f"Error processing file: {str(e)}"}), 500
