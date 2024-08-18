@@ -3,6 +3,7 @@ import pandas as pd
 import os
 from werkzeug.utils import secure_filename
 from .database import insert_document
+from utils.data_preprocessing import data_preprocessing
 
 data_ingestion_bp = Blueprint('data_ingestion', __name__)
 
@@ -17,6 +18,7 @@ def upload_dataset():
         return jsonify({"Error": "No file in the request"}), 400
     
     file = request.files['file']
+    # take input primary column, target column and classification/regression
 
     if file.filename == '':
         return jsonify({"Error": "No file exists"}), 400
@@ -36,8 +38,10 @@ def upload_dataset():
             else:
                 return jsonify({"error": "Unsupported format"}), 400
             
-            #
+            # apply data preprocessing on the dataset
+            df = data_preprocessing(df, {'index', 'W'})
             
+            print(df)
             # Insert the dataset into MongoDB
             dataset_info = {
                 "filename": filename,

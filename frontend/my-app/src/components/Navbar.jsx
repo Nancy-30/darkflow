@@ -5,16 +5,14 @@ import './Navbar.css';
 export default function Navbar() {
   return (
     <nav>
-      <div className="text-title">
-        Darkflow
-      </div>
+      <img src="/logo.png" height="40rem" alt="" />
       <div className="nav-links">
-        <Link to="/">Home</Link>
+        {/* <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/products">Products</Link>
-        <Link to="/partners">Partners</Link>
+        <Link to="/partners">Partners</Link> */}
         <button className="start-button">
-          Get  Started
+          About Us
         </button>
       </div>
     </nav>
