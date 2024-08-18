@@ -62,3 +62,11 @@
     line-height: 1.5;
     margin: 0;
 }
+
+.footer-column img{
+    height: 3rem;
+    width: 3rem;
+    margin-left: 3.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
