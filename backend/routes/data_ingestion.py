@@ -18,7 +18,7 @@ def upload_dataset():
         return jsonify({"Error": "No file in the request"}), 400
     
     file = request.files['file']
-    
+    # take input primary column, target column and classification/regression
 
     if file.filename == '':
         return jsonify({"Error": "No file exists"}), 400
