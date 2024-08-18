@@ -6,7 +6,8 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-column">
-            <h3>© 2024 Accelerate, Inc.</h3>
+            <img src="/tablogo.png" alt="logo"/>
+            <h3>© 2024 DarkFlow</h3>
             <p>All rights reserved.</p>
         </div>
         <div className="footer-column">
