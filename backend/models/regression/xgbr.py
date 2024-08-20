@@ -3,6 +3,10 @@ from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
+import numpy as np
+import mlflow
+import mlflow.sklearn
+
 def xgboost_regression(df, target_column):
     X = df.drop(columns=[target_column])
     y = df[target_column]
@@ -19,5 +23,23 @@ def xgboost_regression(df, target_column):
 
     mse = mean_squared_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
+
+    experiment_name = "Regression"
+    mlflow.set_experiment(experiment_name)
+
+    with mlflow.start_run() as run:
+        random_state = 42   
+        n_estimators=100
+        learning_rate=0.1
+
+        mlflow.log_param("random_state", random_state)
+        mlflow.log_param("n_estimators", n_estimators)
+        mlflow.log_param("learning_rate", learning_rate)
+
+        mlflow.log_metric("mse", mse)
+        mlflow.log_metric("r2", r2)
+
+        # mlflow.log_artifact("classification_report.txt")
+        mlflow.sklearn.log_model(model, "XG Boost")
 
     return mse, r2

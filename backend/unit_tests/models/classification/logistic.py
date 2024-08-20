@@ -42,3 +42,27 @@ def logistic_regression(df, target_column):
         mlflow.sklearn.log_model(clf, "Logistic")
 
     return accuracy, report
+
+
+np.random.seed(0)
+
+# Create a larger dataset
+data = pd.DataFrame(
+    {
+        "A": np.random.randint(1, 100, size=100),
+        "B": np.random.randint(1, 100, size=100),
+        "C": np.random.randint(1, 100, size=100),
+        "D": np.random.randint(1, 100, size=100),
+        "E": np.random.randint(1, 100, size=100),
+        "F": np.random.randint(1, 100, size=100),
+        "G": np.random.randint(1, 100, size=100),
+        "H": np.random.randint(1, 100, size=100),
+        "I": np.random.randint(1, 100, size=100),
+        "J": np.random.randint(1, 100, size=100),
+        "Target": np.random.choice([0, 1], size=100),  # Binary target variable
+    }
+)
+
+acc, report = logistic_regression(data, "Target")
+print(acc)
+print(report)
