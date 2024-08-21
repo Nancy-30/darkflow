@@ -4,6 +4,7 @@ import os
 from werkzeug.utils import secure_filename
 from .database import insert_document
 from utils.data_preprocessing import data_preprocessing
+from utils.detect_problem import detect_problem
 
 data_ingestion_bp = Blueprint('data_ingestion', __name__)
 
@@ -14,10 +15,13 @@ def allowed_file(filename):
 
 @data_ingestion_bp.route('/upload_dataset', methods=['POST'])
 def upload_dataset():
+
+
     if 'file' not in request.files:
         return jsonify({"Error": "No file in the request"}), 400
     
     file = request.files['file']
+
 
     if file.filename == '':
         return jsonify({"Error": "No file exists"}), 400
@@ -41,6 +45,9 @@ def upload_dataset():
             # removing primary column from the dataset
             index = request.form.get('index', None)
             target = request.form.get('target', None)
+
+            # Detect type of problem
+            problem = detect_problem(df.copy(), target)
             
             # apply data preprocessing on the dataset
             preprocessed_df = data_preprocessing(df.copy(), {index, target})
@@ -64,8 +71,10 @@ def upload_dataset():
 
             preprocessed_insert_id = insert_document('preprocessed_datasets', preprocessed_dataset_info)
 
+
             return jsonify({
                 "message": "File uploaded successfully",
+                "problem-category": problem,
                 "original_data_preview": df.head().to_dict(),
                 "preprocessed_data_preview": preprocessed_df.head().to_dict(),
                 "original_insert_id": str(original_insert_id),
