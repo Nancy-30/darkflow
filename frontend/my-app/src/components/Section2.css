@@ -16,7 +16,7 @@
     flex-direction: column;
     align-items: center;
     padding: 60px 0 80px;
-    background-color: #1f2125; /* Darker background for a more modern look */
+    background-color: #000; /* Darker background for a more modern look */
     overflow-x: hidden; /* Prevent horizontal overflow */
     margin-top: -22px;
 }
@@ -29,7 +29,7 @@
     width: 90%; /* Reduce width to give more space on the sides */
     margin: 0 auto 40px auto; /* Center-align the cards with margin */
     padding: 30px; /* Increased padding for a more spacious feel */
-    background-color: #2c2f33; /* Slightly lighter background for contrast */
+    background-color: #000; /* Slightly lighter background for contrast */
     border-radius: 12px; /* Softer corners */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
     overflow: hidden;
@@ -107,10 +107,10 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    padding-top: 20px; /* Increase padding for better spacing */
+    padding-top: 10px; /* Increase padding for better spacing */
     /* background: linear-gradient(rgb(41, 44, 51) 0%, rgb(41, 44, 51) 100%); */
     background-color: #1f2125ff;
-    height: 20vw; /* Increase height for a more prominent header */
+    height: 18vw; /* Increase height for a more prominent header */
 }
 
 .details_header_section {
