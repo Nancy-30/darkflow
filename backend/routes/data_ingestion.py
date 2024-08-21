@@ -15,7 +15,8 @@ def allowed_file(filename):
 
 @data_ingestion_bp.route('/upload_dataset', methods=['POST'])
 def upload_dataset():
-    print("yaha")
+
+
     if 'file' not in request.files:
         return jsonify({"Error": "No file in the request"}), 400
     
