@@ -1,3 +1,4 @@
+/* Base styles for Navbar */
 nav {
   width: 100%;
   padding: 1.5rem 5rem;
@@ -11,8 +12,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  border-bottom: .1px solid transparent; /* Border only at the bottom */
-  background-clip: padding-box, border-box; 
   border-bottom: 1px solid rgb(48, 48, 48);
 }
 
@@ -26,6 +25,7 @@ nav .nav-links {
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  flex-wrap: wrap; /* Allow items to wrap if necessary */
 }
 
 nav .nav-links a {
@@ -34,15 +34,61 @@ nav .nav-links a {
 }
 
 nav .nav-links a:hover {
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 nav .start-button {
-  background-color: #cc2121; 
+  background-color: #cc2121;
   color: white;
-  border: none; 
+  border: none;
   padding: 0.5rem 1rem;
-  /* border-radius: 1rem; x */
   cursor: pointer;
   font-size: 1rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+  nav {
+    padding: 1rem 2rem; /* Adjust padding for medium screens */
+  }
+
+  nav .nav-links {
+    gap: 1rem; /* Reduce gap between items */
+  }
+
+  nav .start-button {
+    font-size: 0.9rem; /* Adjust font size for medium screens */
+    padding: 0.4rem 0.8rem; /* Adjust padding for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem; /* Further reduce padding for smaller screens */
+  }
+
+  nav .nav-links {
+    gap: 0.5rem; /* Reduce gap between items further */
+  }
+
+  nav .start-button {
+    font-size: 0.8rem; /* Further reduce font size */
+    padding: 0.4rem 0.6rem; /* Further adjust padding */
+  }
+}
+
+@media (max-width: 414px) {
+  nav {
+    padding: 0.5rem; /* Reduce padding for very small screens */
+  }
+
+  nav .nav-links {
+    gap: 0.3rem; /* Further reduce gap between items */
+  }
+
+  nav .start-button {
+    font-size: 0.7rem; /* Further reduce font size */
+    padding: 0.3rem 0.5rem; /* Further adjust padding */
+    margin-right: 1rem;
+  }
 }
