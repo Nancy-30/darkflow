@@ -5,3 +5,4 @@ openpyxl
 pymongo
 scikit-learn
 xgboost
+seaborn

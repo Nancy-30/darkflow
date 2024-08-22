@@ -14,10 +14,12 @@ app.config['MONGO_DB_NAME'] = 'user_data'
 
 from routes.data_ingestion import data_ingestion_bp
 from routes.models import model_bp
+from routes.visualization import visualization_bp
 
 # Register Blueprints
 app.register_blueprint(data_ingestion_bp)
 app.register_blueprint(model_bp)
+app.register_blueprint(visualization_bp)
 
 # Run the Flask app
 if __name__ == '__main__':
