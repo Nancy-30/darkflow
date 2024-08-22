@@ -7,13 +7,21 @@ export default function Stats() {
     <div className="container">
       <div className="content-box">
         <div className="header">
-          <h2 className="header-title">Key</h2>
+          <div className="button_div">
+          <button className="header-title">Key</button>
+          <button className="header-title">Key</button>
+          <button className="header-title">Key</button>
+          </div>
           <Button className="download-button">Download Model</Button>
         </div>
         <div className="cards-container">
           <div className="model-section">
             <h3 className="model-title">Model</h3>
-            <p className="model-description">Comprehensive Analysis of Model Metrics</p>
+            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
+            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
+            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
+            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
+            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
           </div>
           <div className="cards-grid">
             <Card className="card">
