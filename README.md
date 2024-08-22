@@ -1,6 +1,6 @@
 # DarkFlow
 
-[![Vercel](https://img.shields.io/badge/vercel-brightgreen)](https://darkflow.vercel.app/)
+[![Vercel](https://img.shields.io/badge/hosted%20on-vercel-darkgreen)](https://darkflow.vercel.app/)
 
 DarkFlow is a cutting-edge AI/ML platform designed to streamline the flow of data processing, model training, and deployment. This project is currently in a private repository and is collaboratively developed by a team of four.
 
