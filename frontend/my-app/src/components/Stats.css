@@ -1,0 +1,206 @@
+/* Dark Mode Styling */
+body {
+  background-color: #171717; /* Dark background for the entire page */
+  color: #e0e0e0; /* Light text color for better readability */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #000000; /* Dark background */
+  padding: 2rem; /* Add padding to avoid content touching edges */
+}
+
+.content-box {
+  width: 90%;
+  max-width: 96rem; 
+  padding: 2rem;
+  background-color: #101010; /* Slightly lighter dark background for the content box */
+  border-radius: 11px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header-title {
+  font-size: 1.5rem; /* Font size for the header title */
+  font-weight: 700; /* Bold font weight */
+  color: #ffffff; /* White text for better contrast */
+  margin: 0;
+}
+
+.download-button {
+  background-color: #6200ea; /* Darker shade of purple for the button */
+  color: #ffffff; /* White text */
+  padding: 0.75rem 1.5rem; /* Add padding to the button */
+  border: none; /* Remove default border */
+  border-radius: 0.25rem; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size for button text */
+}
+
+.cards-container {
+  height: 330px;
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem; /* Space above cards container */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+.model-section {
+  flex: 1;
+  min-width: 25%; /* Minimum width for the model section */
+}
+
+.model-title {
+  font-size: 1.125rem; /* Font size for model title */
+  font-weight: 600; /* Semi-bold font weight */
+  margin-bottom: 30px;
+  color: #e0e0e0; /* Light text color */
+}
+
+.model-description {
+  color: #b0b0b0; /* Slightly lighter gray for description text */
+  margin: 0;
+}
+
+.cards-grid {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid columns */
+  gap: 2rem; /* Gap between grid items */
+}
+
+.card {
+  padding: 1.5rem; /* Padding inside the card */
+  border: 1px solid #333333; /* Dark border color */
+  background-color: #1e1e1e; /* Card background */
+  border-radius: 0.5rem; /* Rounded corners */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Align content properly inside the card */
+}
+
+.card-title {
+  font-size: 1.25rem; /* Font size for card title */
+  font-weight: 600; /* Semi-bold font weight */
+  color: #ffffff; /* White text for contrast */
+  margin: 0 0 1rem 0; /* Margin below the title */
+}
+
+.card-content {
+  color: #e0e0e0; /* Light text color */
+}
+
+.card-content-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 4rem; /* Icon width */
+  height: 4rem; /* Icon height */
+  margin-bottom: 1rem; /* Margin below the icon */
+  fill: #ffffff; /* White fill for the icon */
+}
+.button_div
+{
+  display: flex;
+  flex-direction: row;
+}
+.header-title
+{
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
+  border: solid 1px rgb(46, 46, 46);
+  border-radius: 3px;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 1rem;
+  margin-right: 7px;
+}
+.header-title:hover{
+  background-color: rgb(11, 11, 11);
+}
+.model-description
+{
+  background-color: transparent;
+  border:none;
+  font-size: 1.0rem;
+  margin-bottom: 8px;
+  cursor: pointer;
+  padding: 10px;
+}
+.model-description:hover
+{
+  background-color: #212121ff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.card-content-text {
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding-top: 130px;
+  }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    height: auto; /* Allow container to expand with content */
+  }
+
+  .model-section {
+    min-width: 100%; /* Make the model section full width on smaller screens */
+    margin-bottom: 2rem; /* Add space below the model section */
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr; /* Single column for cards grid on small screens */
+  }
+  .download-button {
+    margin-top: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1.25rem; /* Reduce font size for smaller screens */
+  }
+
+  .download-button {
+    font-size: 0.875rem; /* Reduce font size for smaller screens */
+    padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .model-title {
+    font-size: 1rem; /* Reduce font size for smaller screens */
+  }
+
+  .card-title {
+    font-size: 1rem; /* Reduce font size for smaller screens */
+  }
+}
