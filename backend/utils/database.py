@@ -22,3 +22,8 @@ def insert_document(collection_name, document):
     collection = get_collection(collection_name)
     result = collection.insert_one(document)
     return result.inserted_id
+
+def get_document(collection_name, query):
+    """Get a document from the specified MongoDB collection."""
+    collection = get_collection(collection_name)
+    return collection.find_one(query)

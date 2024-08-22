@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, current_app
 import pandas as pd
 import os
 from werkzeug.utils import secure_filename
-from .database import insert_document
+from utils.database import insert_document
 from utils.data_preprocessing import data_preprocessing
 from utils.detect_problem import detect_problem
 
