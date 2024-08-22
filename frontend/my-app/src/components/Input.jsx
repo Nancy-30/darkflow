@@ -1,13 +1,18 @@
 import React, { forwardRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Input.css';
 
 const Input = forwardRef((props, ref) => {
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here
     alert('Estimate submitted!');
-    onClose();
+    
+    navigate('/stats'); 
   };
+
   return (
     <div className="info-modal-overlay" ref={ref}>
       <div className="info-modal-content">
@@ -19,27 +24,26 @@ const Input = forwardRef((props, ref) => {
         </div>
         
         <div className="modal-content">
-        <h2>Get Started</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="csvFile">Upload CSV File</label>
-            <input type="file" id="csvFile" name="csvFile" accept=".csv" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="primaryKey">Primary Key Column</label>
-            <input type="text" id="primaryKey" name="primaryKey" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="targetColumn">Target Column</label>
-            <input type="text" id="targetColumn" name="targetColumn" required />
-          </div>
-          <button type="submit" className="submit-button">
-            Estimate
-          </button>
-        </form>
+          <h2>Get Started</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="csvFile">Upload CSV File</label>
+              <input type="file" id="csvFile" name="csvFile" accept=".csv" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="primaryKey">Primary Key Column</label>
+              <input type="text" id="primaryKey" name="primaryKey" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="targetColumn">Target Column</label>
+              <input type="text" id="targetColumn" name="targetColumn" required />
+            </div>
+            <button type="submit" className="submit-button">
+              Estimate
+            </button>
+          </form>
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 });
