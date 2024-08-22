@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #1a202c;
+  }
+  
+  .content-box {
+    width: 100%;
+    max-width: 96rem; 
+    padding: 2rem;
+    background-color: #ffffff; /* Equivalent to bg-white */
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-lg */
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .header-title {
+    font-size: 1.5rem; /* Equivalent to text-2xl */
+    font-weight: 700; /* Equivalent to font-bold */
+  }
+  
+  .download-button {
+    background-color: #2563eb; /* Equivalent to bg-blue-600 */
+    color: #ffffff; /* Equivalent to text-white */
+  }
+  
+  .cards-container {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .model-section {
+    width: 25%; /* Equivalent to w-1/4 */
+  }
+  
+  .model-title {
+    font-size: 1.125rem; /* Equivalent to text-lg */
+    font-weight: 600; /* Equivalent to font-semibold */
+    margin-bottom: 1rem;
+  }
+  
+  .model-description {
+    color: #4a5568; /* Equivalent to text-gray-600 */
+  }
+  
+  .cards-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; /* Equivalent to gap-8 */
+  }
+  
+  .card {
+    padding: 1.5rem; /* Equivalent to p-6 */
+    border: 1px solid #e2e8f0; /* Equivalent to border */
+  }
+  
+  .card-title {
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    font-weight: 600; /* Equivalent to font-semibold */
+  }
+  
+  .card-content {
+    color: #4a5568; /* Equivalent to text-gray-600 */
+  }
+  
+  .card-content-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 4rem; /* Equivalent to w-16 */
+    height: 4rem; /* Equivalent to h-16 */
+    margin-bottom: 1rem; /* Equivalent to mb-4 */
+  }
+  
+  .card-content-text {
+    text-align: center;
+  }
+  
