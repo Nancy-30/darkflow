@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import "./Stats.css"; 
+import ReactSpeedometer from "react-d3-speedometer"
 
 export default function Stats() {
   return (
@@ -8,11 +9,11 @@ export default function Stats() {
       <div className="content-box">
         <div className="header">
           <div className="button_div">
-          <button className="header-title">Key</button>
-          <button className="header-title">Key</button>
-          <button className="header-title">Key</button>
+          <button className="header-title">Model</button>
+          <button className="header-title">Model Analytics</button>
+          <button className="header-title">Model Viz</button>
           </div>
-          <Button className="download-button">Download Model</Button>
+          <button className="download-button">Download Model</button>
         </div>
         <div className="cards-container">
           <div className="model-section">
@@ -29,6 +30,16 @@ export default function Stats() {
                 <CardTitle className="card-title">Accuracy</CardTitle>
               </CardHeader>
               <CardContent>
+                <ReactSpeedometer
+                  maxValue={100}
+                  value={80}
+                  needleColor="red"
+                  startColor="green"
+                  segments={10}
+                  endColor="blue"
+                  width={200} // Reduced width by 10%
+                  height={120} // Adjust height proportionally
+                />
                 <p className="card-content">The model's prediction accuracy on the test dataset exceeds industry</p>
               </CardContent>
             </Card>
