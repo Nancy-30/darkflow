@@ -25,6 +25,8 @@ def random_forest_classifier(df, target_column):
     mlflow.set_experiment(experiment_name)
 
     with mlflow.start_run() as run:
+        mlflow.set_tag("mlflow.runName", "Random Forest Classifier")
+
         n_estimators=100
         random_state = 42
 

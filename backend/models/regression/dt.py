@@ -28,6 +28,9 @@ def decision_tree(df, target_column):
     mlflow.set_experiment(experiment_name)
 
     with mlflow.start_run() as run:
+        
+        mlflow.set_tag("mlflow.runName", "Decision Tree")
+
         random_state = 42
 
         mlflow.log_param("random_state", random_state)

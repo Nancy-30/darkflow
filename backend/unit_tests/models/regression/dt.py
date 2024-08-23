@@ -9,6 +9,7 @@ import mlflow.sklearn
 
 import numpy as np
 
+
 def decision_tree(df, target_column):
     X = df.drop(columns=[target_column])
     y = df[target_column]
@@ -18,7 +19,9 @@ def decision_tree(df, target_column):
     # # Convert target to numerical values
     # y = y.map({'MET': 1, 'NOT MET': 0})
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
 
     model = DecisionTreeClassifier(max_depth=None, random_state=42)
 
@@ -29,10 +32,11 @@ def decision_tree(df, target_column):
     accuracy = accuracy_score(y_test, y_pred)
     report = classification_report(y_test, y_pred)
 
-    experiment_name = "Classification"
+    experiment_name = "Regression"
     mlflow.set_experiment(experiment_name)
 
     with mlflow.start_run() as run:
+        mlflow.set_tag("mlflow.runName", "Decision Tree")
         random_state = 60
         mlflow.log_param("random_state", random_state)
 
@@ -40,13 +44,16 @@ def decision_tree(df, target_column):
 
         with open("classification_report.txt", "w") as f:
             f.write(report)
-        
+
         mlflow.log_artifact("classification_report.txt")
         mlflow.sklearn.log_model(model, "Decision Tree")
 
         print(accuracy)
 
     return accuracy, report
+
+
+np.random.seed(0)
 
 data = pd.DataFrame(
     {
@@ -65,7 +72,5 @@ data = pd.DataFrame(
 )
 
 accuracy, report = decision_tree(data, "Target")
-print(f'Accuracy: {accuracy}')
-print(f'Classification Report:\n{report}')
-
-
+print(f"Accuracy: {accuracy}")
+print(f"Classification Report:\n{report}")

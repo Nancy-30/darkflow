@@ -28,6 +28,9 @@ def k_nearest_neighbors(df, target_column):
     mlflow.set_experiment(experiment_name)
 
     with mlflow.start_run() as run:
+        
+        mlflow.set_tag("mlflow.runName", "KNN Model")
+
         n_neighbors = 3
         mlflow.log_param("n_neighbors", n_neighbors)
 

@@ -7,6 +7,7 @@ import numpy as np
 import mlflow
 import mlflow.sklearn
 
+
 def xgboost_classifier(df, target_column):
     X = df.drop(target_column, axis=1)
     y = df[target_column]
@@ -15,8 +16,12 @@ def xgboost_classifier(df, target_column):
 
     X = pd.get_dummies(X, drop_first=True)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    clf = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss', random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
+    clf = XGBClassifier(
+        use_label_encoder=False, eval_metric="mlogloss", random_state=42
+    )
     clf.fit(X_train, y_train)
     y_pred = clf.predict(X_test)
 
@@ -27,7 +32,9 @@ def xgboost_classifier(df, target_column):
     mlflow.set_experiment(experiment_name)
 
     with mlflow.start_run() as run:
-        eval_metric='mlogloss'
+        mlflow.set_tag("mlflow.runName", "XGBoost Classifier")
+
+        eval_metric = "mlogloss"
         random_state = 42
 
         mlflow.log_param("eval_metric", eval_metric)
@@ -37,7 +44,7 @@ def xgboost_classifier(df, target_column):
 
         with open("classification_report.txt", "w") as f:
             f.write(report)
-        
+
         mlflow.log_artifact("classification_report.txt")
 
         mlflow.sklearn.log_model(clf, "XGBCL")
