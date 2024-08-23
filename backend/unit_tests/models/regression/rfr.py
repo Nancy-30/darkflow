@@ -44,3 +44,26 @@ def randomforest_regression(df, target_column):
         mlflow.sklearn.log_model(model, "Random Forest")
 
     return mse, r2
+
+
+np.random.seed(0)
+
+data = pd.DataFrame(
+    {
+        "A": np.random.randint(1, 100, size=100),
+        "B": np.random.randint(1, 100, size=100),
+        "C": np.random.randint(1, 100, size=100),
+        "D": np.random.randint(1, 100, size=100),
+        "E": np.random.randint(1, 100, size=100),
+        "F": np.random.randint(1, 100, size=100),
+        "G": np.random.randint(1, 100, size=100),
+        "H": np.random.randint(1, 100, size=100),
+        "I": np.random.randint(1, 100, size=100),
+        "J": np.random.randint(1, 100, size=100),
+        "Target": np.random.choice([0, 1], size=100),  # Binary target variable
+    }
+)
+
+mse, r2 = randomforest_regression(data, "Target")
+print(f"mse: {mse}")
+print(f"r2:\n{r2}")
