@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './Landing.css';
-import Input from './Input'; // Ensure the correct path to Input component
-import Section2 from './Section2';
+import Input from '../Input/Input'; // Ensure the correct path to Input component
+import Section2 from '../Section2/Section2';
 
 export default function Landing() {
   const inputRef = useRef(null);

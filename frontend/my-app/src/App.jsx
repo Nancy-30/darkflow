@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Landing from './components/Landing';
-import Footer from './components/Footer';
-import Stats from './components/Stats'; 
+import Navbar from './components/Navbar/Navbar';
+import Landing from './components/Landing/Landing';
+import Footer from './components/Footer/Footer';
+import Stats from './components/Stats/Stats'; 
 
 export default function Home() {
   return (

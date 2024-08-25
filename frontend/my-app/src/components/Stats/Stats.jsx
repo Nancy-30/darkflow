@@ -1,5 +1,5 @@
-import { Button } from "./ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
+import { Button } from "../ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "../ui/card";
 import "./Stats.css"; 
 import ReactSpeedometer from "react-d3-speedometer"
 
