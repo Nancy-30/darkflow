@@ -15,12 +15,22 @@ const Input = forwardRef((props, ref) => {
 
   return (
     <div className="info-modal-overlay" ref={ref}>
+      <div className="parent_section">
+        <div className="heading_div">
+          <h1 className="header_section">Elevate Your Machine<span> Learning </span>Capabilities </h1>
+          <p className="details_header_section">
+          Harness the power of our cutting-edge machine learning technology to revolutionize your business operations and stay ahead.
+          </p>
+        </div>
+      </div>
+
       <div className="info-modal-content">
         <div className="info-text">
           <h1>Unlock the Future of Machine Learning</h1>
           <br />
           <p>Discover the Power of ML-Ops: Effortlessly Manage and Scale Your</p>
           <p>Propel Your Business Forward with Our Innovative ML Solutions</p>
+          <img src="/Input2.gif" alt="Ai animation" className="gif-animation" />
         </div>
         
         <div className="modal-content">
