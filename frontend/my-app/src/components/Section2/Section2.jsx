@@ -66,15 +66,16 @@ const Section2 = React.forwardRef((props, ref) => {
 
   return (
     <>
-      <motion.div
-        className="parent_section"
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -150 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h1 className="header_section">Our Key <span>Features</span></h1>
-        <p className="details_header_section">Discover the essential features of our platform that drive intelligent decision-making and seamless integration into your operations.</p>
-      </motion.div>
+      <div className="parent_section">
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -100 }}
+          transition={{ duration: 1 }}
+          className='heading_div'>
+          <h1 className="header_section">Our Key <span>Features</span></h1>
+          <p className="details_header_section">Discover the essential features of our platform that drive intelligent decision-making and seamless integration into your operations.</p>
+        </motion.div>
+      </div>
 
       <div className="container_section">
 
