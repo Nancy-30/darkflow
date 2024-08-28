@@ -23,15 +23,12 @@ export default function Landing() {
   };
 
   return (
-    <section
-
-    >
+    <section>
       <motion.div
         style={{ opacity }}
         ref={targetRef}
         className="landing-container">
         <motion.div style={{ scale, opacity }} className="hero-section">
-
           <motion.div
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: -100 }}
