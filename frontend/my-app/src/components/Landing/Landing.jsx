@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import './Landing.css';
-import Input from '../Input/Input'; // Ensure the correct path to Input component
+import Input from '../Input/Input'; 
 import Section2 from '../Section2/Section2';
 
 export default function Landing() {
