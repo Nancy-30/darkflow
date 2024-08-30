@@ -113,7 +113,7 @@
     height: 18vw; /* Increase height for a more prominent header */
 }
 
-.heading_div{
+.heading1_div{
     display: flex;
     flex-direction: column;
     justify-content: center;

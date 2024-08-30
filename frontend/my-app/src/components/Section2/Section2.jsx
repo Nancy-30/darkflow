@@ -67,7 +67,7 @@ const Section2 = React.forwardRef((props, ref) => {
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -100 }}
           transition={{ duration: 1 }}
-          className="heading_div"
+          className="heading1_div"
         >
           <h1 className="header_section">
             Our Key <span>Features</span>

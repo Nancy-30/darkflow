@@ -15,7 +15,7 @@ const Input = forwardRef((props, ref) => {
 
   return (
     <div className="info-modal-overlay" ref={ref}>
-      <div className="parent_section">
+      <div className="parent2_section">
         <div className="heading_div">
           <h1 className="header_section">Elevate Your Machine<span> Learning </span>Capabilities </h1>
           <p className="details_header_section">
@@ -49,7 +49,7 @@ const Input = forwardRef((props, ref) => {
               <input type="text" id="targetColumn" name="targetColumn" required />
             </div>
             <button type="submit" className="submit-button">
-              Estimate
+              Let's Go
             </button>
           </form>
         </div>
