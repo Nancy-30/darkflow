@@ -1,90 +1,86 @@
-import { Button } from "../ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "../ui/card";
-import "./Stats.css"; 
-import ReactSpeedometer from "react-d3-speedometer"
+import React, { useState } from "react";
+import "./Stats.css";
 
 export default function Stats() {
+  const [showModelSection, setShowModelSection] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowModelSection(true);
+  };
+
   return (
-    <div className="container">
-      <div className="content-box">
-        <div className="header">
-          <div className="button_div">
-          <button className="header-title">Model</button>
-          <button className="header-title">Model Analytics</button>
-          <button className="header-title">Model Viz</button>
-          </div>
-          <button className="download-button">Download Model</button>
+    <div className="visualization-page">
+      <h2 className="heading">Visualization:<span> Name of the Dataset</span></h2>
+      
+      <div className="grid-container">
+        <div className="graph-container">
+          <div className="graph">Graph 1</div>
+          <p className="name_of_graph">Lorem ipsum dolor sit.</p>
         </div>
-        <div className="cards-container">
-          <div className="model-section">
-            <h3 className="model-title">Model</h3>
-            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
-            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
-            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
-            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
-            <button className="model-description">Comprehensive Analysis of Model Metrics</button>
-          </div>
-          <div className="cards-grid">
-            <Card className="card">
-              <CardHeader>
-                <CardTitle className="card-title">Accuracy</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ReactSpeedometer
-                  maxValue={100}
-                  value={80}
-                  needleColor="red"
-                  startColor="green"
-                  segments={10}
-                  endColor="blue"
-                  width={200} // Reduced width by 10%
-                  height={120} // Adjust height proportionally
-                />
-                <p className="card-content">The model's prediction accuracy on the test dataset exceeds industry</p>
-              </CardContent>
-            </Card>
-            <Card className="card">
-              <CardHeader>
-                <CardTitle className="card-title">Model Efficiency</CardTitle>
-              </CardHeader>
-              <CardContent className="card-content-icon">
-                <PowerIcon className="icon" />
-                <p className="card-content-text">The model's streamlined architecture delivers</p>
-              </CardContent>
-            </Card>
-            <Card className="card">
-              <CardHeader>
-                <CardTitle className="card-title">Customize</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="card-content">Explore Variables</p>
-                <p className="card-content">View</p>
-                <p className="card-content">Dive deeper into the model's performance with interactive charts and</p>
-              </CardContent>
-            </Card>
-          </div>
+        <div className="graph-container">
+          <div className="graph">Graph 2</div>
+          <p className="name_of_graph">Lorem ipsum dolor sit.</p>
+        </div>
+        <div className="graph-container">
+          <div className="graph">Graph 3</div>
+          <p className="name_of_graph">Lorem ipsum dolor sit.</p>
+        </div>
+        <div className="graph-container">
+          <div className="graph">Graph 4</div>
+          <p className="name_of_graph">Lorem ipsum dolor sit.</p>
+        </div>
+        <div className="graph-container">
+          <div className="graph">Graph 5</div>
+          <p className="name_of_graph">Lorem ipsum dolor sit.</p>
+        </div>
+        <div className="graph-container">
+          <div className="graph">Graph 6</div>
+          <p className="name_of_graph">Lorem ipsum dolor sit.</p>
+        </div>
+        <div className="graph-container">
+          <div className="graph">Graph 7</div>
+          <p className="name_of_graph">Lorem ipsum dolor sit.</p>
+        </div>
+        <div className="graph-container">
+          <div className="graph">Graph 8</div>
+          <p className="name_of_graph">Lorem ipsum dolor sit.</p>
+        </div>
+        <div className="graph-container">
+          <div className="graph">Graph 9</div>
+          <p className="name_of_graph">Lorem ipsum dolor sit.</p>
         </div>
       </div>
-    </div>
-  );
-}
+      
+      <div className="button-container">
+        <p className="find_model">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum ratione saepe ipsa, accusantium perferendis incidunt sunt officiis quaerat. Cupiditate, omnis?</p>
+        <button className="find-model-button" onClick={handleButtonClick}>
+          Find your best model
+        </button>
+      </div>
 
-function PowerIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 2v10" />
-      <path d="M18.4 6.6a9 9 0 1 1-12.77.04" />
-    </svg>
+      {showModelSection && (
+        <div className="model-section">
+          <div className="model-container">
+            <h3>Accuracy</h3>
+            <p>85%</p>
+          </div>
+          <div className="model-container">
+            <h3>Precision & Recall</h3>
+            <p>Precision: 82%</p>
+            <p>Recall: 78%</p>
+          </div>
+          <div className="model-container">
+            <h3>Model Details</h3>
+            <p>This model is a Random Forest classifier...</p>
+          </div>
+
+          <div className="toggle-buttons">
+            <button className="toggle-button">Model 1</button>
+            <button className="toggle-button">Model 2</button>
+            <button className="toggle-button">Model 3</button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
