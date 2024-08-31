@@ -1,5 +1,5 @@
 .visualization-page {
-  margin-top:140px;
+  margin-top: 140px;
 }
 
 .heading {
@@ -7,22 +7,32 @@
   margin-bottom: 40px;
   font-size: 27px;
   font-weight: bold;
-  color:rgb(200, 200, 200);
+  color: rgb(200, 200, 200);
   padding-left: 60px;
 }
 
-.heading span
-{
+.heading span {
   color: rgb(255, 255, 255);
 }
 
 .grid-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3x3 grid layout */
+  gap: 50px; /* Gap between grid items */
   margin-bottom: 40px;
-  padding-left:60px;
-  padding-right:60px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .graph-container {
@@ -35,11 +45,12 @@
   justify-content: center;
   align-items: center;
   height: 270px;
-  width:470px;
+  width: 100%; /* Adapt width to grid */
   margin: 15px;
+  animation: fadeIn 0.5s ease-in-out;
 }
-.name_of_graph
-{
+
+.name_of_graph {
   color: grey;
   font-size: 1.1rem;
 }
@@ -68,9 +79,10 @@
   background-color: rgb(68, 68, 68);
   margin-top: 100px;
   margin-bottom: 100px;
+  width: 100%;
 }
-.find_model
-{
+
+.find_model {
   font-size: 1.5rem;
   max-width: 750px;
   line-height: 35px;
@@ -91,26 +103,26 @@
   background-color: #0056b3;
 }
 
-
-
 .model-section {
   display: flex;
-  /* grid-template-columns: repeat(3, 1fr);
-  gap: 20px; */
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: row; /* Align horizontally on larger screens */
+  justify-content: center;
+  align-items: flex-start; /* Align model containers to the top */
+  gap: 20px;
   margin-top: 40px;
   margin-bottom: 20px;
   padding-left: 60px;
   padding-right: 60px;
+  flex-wrap: wrap; /* Allow wrapping if the screen is narrow */
 }
 
 .model-container {
   background-color: #151515; /* Dark grey background */
   padding: 20px;
   border-radius: 8px;
-  height: 400px; /* Square div */
-  width: 450px;
+  height: 400px;
+  flex: 1; /* Allow flex grow to fill available space */
+  max-width: 400px; /* Increased width */
   margin: 14px;
   display: flex;
   flex-direction: column;
@@ -118,6 +130,7 @@
   align-items: center;
   color: white; /* Text color */
   border: solid 2px rgb(44, 44, 44);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .model-container h3 {
@@ -126,13 +139,12 @@
 }
 
 .toggle-buttons {
+  width: 100%; /* Full width to ensure proper alignment */
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
-  padding-left: 20px;
+  order: 1; /* Ensure toggle buttons stay below the model containers */
 }
 
 .toggle-button {
@@ -152,3 +164,36 @@
   background-color: #0056b3;
 }
 
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    gap: 30px; /* Reduce gap slightly */
+  }
+  
+  .model-section {
+    flex-direction: column; /* Stack containers vertically on medium screens */
+    align-items: center; /* Center items */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 20px; /* Further reduce gap */
+  }
+
+  .graph-container {
+    width: 100%; /* Full width on small screens */
+    margin: 0 auto; /* Center align on small screens */
+  }
+
+  .model-container {
+    width: 100%; /* Full width on small screens */
+    margin: 0 auto; /* Center align on small screens */
+  }
+
+  .model-section {
+    flex-direction: column; /* Stack containers vertically on small screens */
+  }
+}

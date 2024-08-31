@@ -78,6 +78,7 @@ export default function Stats() {
             <button className="toggle-button">Model 1</button>
             <button className="toggle-button">Model 2</button>
             <button className="toggle-button">Model 3</button>
+            <button className="toggle-button">Model 4</button>
           </div>
         </div>
       )}
