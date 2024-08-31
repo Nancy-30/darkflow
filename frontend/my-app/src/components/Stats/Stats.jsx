@@ -2,10 +2,105 @@ import React, { useState } from "react";
 import "./Stats.css";
 
 export default function Stats() {
-  const [showModelSection, setShowModelSection] = useState(false);
+  const [selectedModel, setSelectedModel] = useState(null);
 
-  const handleButtonClick = () => {
-    setShowModelSection(true);
+  const handleButtonClick = (model) => {
+    setSelectedModel(model);
+  };
+
+  const renderModelDetails = () => {
+    switch (selectedModel) {
+      case 'KNN':
+        return (
+          <>
+            <div className="model-container">
+              <h3>Accuracy</h3>
+              <p>90%</p>
+            </div>
+            <div className="model-container">
+              <h3>Precision & Recall</h3>
+              <p>Precision: 88%</p>
+              <p>Recall: 85%</p>
+            </div>
+            <div className="model-container">
+              <h3>Model Details</h3>
+              <p>This model is a K-Nearest Neighbors classifier...</p>
+            </div>
+          </>
+        );
+      case 'SVM':
+        return (
+          <>
+            <div className="model-container">
+              <h3>Accuracy</h3>
+              <p>92%</p>
+            </div>
+            <div className="model-container">
+              <h3>Precision & Recall</h3>
+              <p>Precision: 90%</p>
+              <p>Recall: 89%</p>
+            </div>
+            <div className="model-container">
+              <h3>Model Details</h3>
+              <p>This model is a Support Vector Machine classifier...</p>
+            </div>
+          </>
+        );
+      case 'Random Forest':
+        return (
+          <>
+            <div className="model-container">
+              <h3>Accuracy</h3>
+              <p>88%</p>
+            </div>
+            <div className="model-container">
+              <h3>Precision & Recall</h3>
+              <p>Precision: 85%</p>
+              <p>Recall: 83%</p>
+            </div>
+            <div className="model-container">
+              <h3>Model Details</h3>
+              <p>This model is a Random Forest classifier...</p>
+            </div>
+          </>
+        );
+      case 'Logistic Regression':
+        return (
+          <>
+            <div className="model-container">
+              <h3>Accuracy</h3>
+              <p>84%</p>
+            </div>
+            <div className="model-container">
+              <h3>Precision & Recall</h3>
+              <p>Precision: 80%</p>
+              <p>Recall: 78%</p>
+            </div>
+            <div className="model-container">
+              <h3>Model Details</h3>
+              <p>This model is a Logistic Regression classifier...</p>
+            </div>
+          </>
+        );
+      default:
+        return (
+          <>
+            <div className="model-container">
+              <h3>Accuracy</h3>
+              <p>85%</p>
+            </div>
+            <div className="model-container">
+              <h3>Precision & Recall</h3>
+              <p>Precision: 82%</p>
+              <p>Recall: 78%</p>
+            </div>
+            <div className="model-container">
+              <h3>Model Details</h3>
+              <p>This model is a Random Forest classifier...</p>
+            </div>
+          </>
+        );
+    }
   };
 
   return (
@@ -13,6 +108,7 @@ export default function Stats() {
       <h2 className="heading">Visualization:<span> Name of the Dataset</span></h2>
       
       <div className="grid-container">
+        {/* Graph Containers */}
         <div className="graph-container">
           <div className="graph">Graph 1</div>
           <p className="name_of_graph">Lorem ipsum dolor sit.</p>
@@ -49,36 +145,30 @@ export default function Stats() {
           <div className="graph">Graph 9</div>
           <p className="name_of_graph">Lorem ipsum dolor sit.</p>
         </div>
+        {/* Repeat for other graph containers */}
       </div>
       
       <div className="button-container">
         <p className="find_model">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum ratione saepe ipsa, accusantium perferendis incidunt sunt officiis quaerat. Cupiditate, omnis?</p>
-        <button className="find-model-button" onClick={handleButtonClick}>
-          Find your best model
+        <button
+          className="find-model-button"
+          onClick={() => handleButtonClick('Linear Regression')}
+        >
+          {selectedModel ? 'Change Model' : 'Find your best model'}
         </button>
       </div>
 
-      {showModelSection && (
+      {selectedModel && (
         <div className="model-section">
-          <div className="model-container">
-            <h3>Accuracy</h3>
-            <p>85%</p>
-          </div>
-          <div className="model-container">
-            <h3>Precision & Recall</h3>
-            <p>Precision: 82%</p>
-            <p>Recall: 78%</p>
-          </div>
-          <div className="model-container">
-            <h3>Model Details</h3>
-            <p>This model is a Random Forest classifier...</p>
-          </div>
+          <h2 className="model-name">Model Name: <span>{selectedModel}</span></h2>
+
+          {renderModelDetails()}
 
           <div className="toggle-buttons">
-            <button className="toggle-button">Model 1</button>
-            <button className="toggle-button">Model 2</button>
-            <button className="toggle-button">Model 3</button>
-            <button className="toggle-button">Model 4</button>
+            <button className="toggle-button" onClick={() => handleButtonClick('KNN')}>KNN</button>
+            <button className="toggle-button" onClick={() => handleButtonClick('SVM')}>SVM</button>
+            <button className="toggle-button" onClick={() => handleButtonClick('Random Forest')}>Random Forest</button>
+            <button className="toggle-button" onClick={() => handleButtonClick('Logistic Regression')}>Logistic Regression</button>
           </div>
         </div>
       )}
