@@ -3,14 +3,16 @@ import Navbar from '../components/Navbar';
 import Landing from '../components/Landing';
 import Challenges from '../components/Challenges';
 import MLOps_work from '../components/MLOps_work';
+import Data_Potential from '../components/Data_Potential';
 
 export default function Home() {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Landing />
       <Challenges />
       <MLOps_work />
+      <Data_Potential />
     </div>
   )
 }
