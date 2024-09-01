@@ -11,12 +11,7 @@ export default function Landing() {
                 </div>
 
                 <div>
-                    <svg
-                        viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="500"
-                        height="500"
-                    >
+                    <svg className='hidden md:block' viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="500" height="500">
                         {/* Define the clipPath using the blob path */}
                         <defs>
                             <clipPath id="blobClip">
