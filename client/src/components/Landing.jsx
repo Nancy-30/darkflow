@@ -5,7 +5,7 @@ export default function Landing() {
         <div className='text-white mt-14'>
             <div className='h-[30rem] flex items-center justify-between mt-6'>
                 <div className='w-[50%] flex flex-col gap-4 items-start'>
-                    <h1 className='text-6xl font-bold'>Achieve Machine Learning Mastery Effortlesly</h1>
+                    <h1 className='text-6xl font-bold'>Achieve MLOps Automation Effortlesly</h1>
                     <p className='text-gray-500 font-semibold'>Automate model selection and data analysis with SmartMLOps</p>
                     <button className='bg-white text-black p-2 rounded-md'>Get Started</button>
                 </div>
