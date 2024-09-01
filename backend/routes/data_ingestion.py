@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 from utils.database import insert_document
 from utils.data_preprocessing import data_preprocessing
 from utils.detect_problem import detect_problem
+from utils.visualize_dataset import generate_and_save_graphs
 
 data_ingestion_bp = Blueprint('data_ingestion', __name__)
 
@@ -15,17 +16,13 @@ def allowed_file(filename):
 
 @data_ingestion_bp.route('/upload_dataset', methods=['POST'])
 def upload_dataset():
-
-
     if 'file' not in request.files:
         return jsonify({"Error": "No file in the request"}), 400
     
     file = request.files['file']
 
-
     if file.filename == '':
         return jsonify({"Error": "No file exists"}), 400
-   
     
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
@@ -48,6 +45,10 @@ def upload_dataset():
 
             # Detect type of problem
             problem = detect_problem(df.copy(), target)
+
+            # Plot various graphs based on dataset
+            graph_save_folder = os.path.join(current_app.config['GRAPH_FOLDER'], filename.rsplit('.', 1)[0])
+            generate_and_save_graphs(df, graph_save_folder)
             
             # apply data preprocessing on the dataset
             preprocessed_df = data_preprocessing(df.copy(), {index, target})
@@ -71,14 +72,14 @@ def upload_dataset():
 
             preprocessed_insert_id = insert_document('preprocessed_datasets', preprocessed_dataset_info)
 
-
             return jsonify({
                 "message": "File uploaded successfully",
                 "problem-category": problem,
                 "original_data_preview": df.head().to_dict(),
                 "preprocessed_data_preview": preprocessed_df.head().to_dict(),
                 "original_insert_id": str(original_insert_id),
-                "preprocessed_insert_id": str(preprocessed_insert_id)
+                "preprocessed_insert_id": str(preprocessed_insert_id),
+                "graph_folder": graph_save_folder
             }), 201
 
         except Exception as e:

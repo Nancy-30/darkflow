@@ -4,6 +4,8 @@ from models.regression import xgbr, linear, rfr, dt
 from utils.best_model import getBestRegressionModel, getBestClassificationModel
 import pandas as pd
 from utils.detect_problem import detect_problem
+from bson import ObjectId
+from utils.database import get_document
 
 model_bp = Blueprint('model', __name__)
 
@@ -13,30 +15,32 @@ def get_models():
 
 @model_bp.route('/train_model', methods=['POST'])
 def train_best_model():
-    # Read the uploaded file into a DataFrame
-    file = request.files.get('processed_df')
-    if not file:
-        return jsonify({"message": "No file uploaded"}), 400
+    # Get the dataset_id from the request
+    dataset_id = request.form.get('dataset_id')
+    if not dataset_id:
+        return jsonify({"message": "No dataset ID provided"}), 400
 
     try:
-        if file.filename.endswith('.csv'):
-            df = pd.read_csv(file)
-        elif file.filename.endswith(('.xlsx', '.xls')):
-            df = pd.read_excel(file)
-        elif file.filename.endswith('.json'):
-            df = pd.read_json(file)
-        else:
-            return jsonify({"message": "Unsupported file format"}), 400
+        # Convert the string ID to an ObjectId and fetch the document from MongoDB
+        dataset_object_id = ObjectId(dataset_id)
+        dataset_info = get_document('original_datasets', {"_id": dataset_object_id})
         
-        # Clean column names
+        if not dataset_info:
+            return jsonify({"message": "Dataset not found"}), 404
+        
+
+        # Load the dataset from the data saved in the document
+        df = pd.DataFrame(dataset_info['original_data'])
+        
+        # Clean column names (if needed)
         df.columns = [col.strip().replace(' ', '_').replace('[', '').replace(']', '').replace('<', '').replace('>', '') for col in df.columns]
         
     except Exception as e:
-        return jsonify({"message": f"Error reading file: {str(e)}"}), 400
+        return jsonify({"message": f"Error loading dataset: {str(e)}"}), 400
 
-    target_column = request.form.get('target_column')
+    target_column = dataset_info.get('target')
     if not target_column:
-        return jsonify({"message": "No target column provided"}), 400
+        return jsonify({"message": "Target column not found in dataset information"}), 400
 
     model_type = detect_problem(df, target_column)
     
