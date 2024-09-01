@@ -11,6 +11,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MONGO_URI'] = os.getenv('MONGO_URI')
 app.config['MONGO_DB_NAME'] = 'user_data'
+app.config['GRAPH_FOLDER'] = 'graphs'
 
 from routes.data_ingestion import data_ingestion_bp
 from routes.models import model_bp
