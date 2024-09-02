@@ -48,7 +48,7 @@ function Pricing_FAQ() {
               <li>✔️ Priority Support</li>
             </ul>
             <button className="mt-8 bg-white text-black py-2 px-4 rounded-md">
-              Get Started
+              Let's Go
             </button>
           </div>
           {/* Enterprise Plan */}
