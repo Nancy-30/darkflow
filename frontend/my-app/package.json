@@ -22,6 +22,7 @@
     "framer-motion": "^11.3.30",
     "intersection-observer": "^0.12.2",
     "lucide-react": "^0.429.0",
+    "my-app": "file:",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-d3-speedometer": "^2.2.1",
